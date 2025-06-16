@@ -1,0 +1,23 @@
+# Node.js
+node_modules/
+npm-debug.log*
+.env
+.env.*  # ignore semua variasi .env (env.development, env.local, dll)
+
+# Docker (jangan ignore Dockerfile & docker-compose utama)
+docker-compose.override.yml
+.docker/
+*.log
+
+# Docker volumes & cache folders
+volumes/
+data/
+tmp/
+*.pid
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
