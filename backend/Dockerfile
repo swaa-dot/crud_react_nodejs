@@ -1,20 +1,17 @@
-# Gunakan image resmi Node.js
 FROM node:18
 
-# Set direktori kerja dalam container
+# Buat direktori kerja dalam container
 WORKDIR /app
 
-# Salin file konfigurasi (agar cache instalasi efektif)
+# Salin dan install dependensi dulu (agar cache efisien)
 COPY package*.json ./
-
-# Install dependensi
 RUN npm install
 
-# Salin semua file backend ke container
+# Lalu salin semua file project
 COPY . .
 
-# Jalankan server di port 5000
+# Expose port sesuai yang digunakan di server.js/index.js
 EXPOSE 5000
 
-# Perintah default saat container dijalankan
-CMD ["npm", "start"]
+# Jalankan server saat container start
+CMD ["node", "index.js"]
